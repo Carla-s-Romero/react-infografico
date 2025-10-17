@@ -58,12 +58,13 @@ function NPSSection() {
       <h2 className="section-title">NPS - Net Promoter Score</h2>
       
       <DefinitionBox 
-        title="📈 O que é NPS?"
-        description={<><strong>Net Promoter Score</strong> é uma métrica criada em 2003 por <span className="highlight">Fred Reichheld</span> (Bain & Company) para medir o grau de satisfação e lealdade dos clientes, indicando a probabilidade de recomendarem o produto.</>}
+        title="1. O que é NPS?"
+        description={<>O <strong>Net Promoter Score</strong> é uma metodologia criada por <span className="highlight">Fred Reichheld</span> (Bain & Company) para medir o nível de satisfação e lealdade dos clientes em relação a uma empresa, produto ou serviço. Ele é considerado uma das métricas mais utilizadas no mundo para avaliar a experiência do cliente de forma simples, rápida e eficaz.
+        </>}
       />
 
       <DefinitionBox 
-        title="❓ Pergunta Principal"
+        title="2. Pergunta Principal"
         description={
           <p style={{fontSize: '1.2em', fontStyle: 'italic', textAlign: 'center', marginTop: '15px'}}>
             "Em uma escala de 0 a 10, o quanto você recomendaria nossa empresa/produto/serviço a um amigo ou colega?"
@@ -71,7 +72,7 @@ function NPSSection() {
         }
       />
 
-      <h3 className="subsection-title">👥 Classificação dos Clientes</h3>
+      <h3 className="subsection-title">Classificação dos Clientes</h3>
       
       <div className="nps-groups">
         {npsGroups.map((group) => (
@@ -96,7 +97,7 @@ function NPSSection() {
       <h3 className="subsection-title">💡 Exemplo Prático</h3>
       <ExampleBox />
 
-      <h3 className="subsection-title">🔄 Ciclo de Melhoria Contínua</h3>
+      <h3 className="subsection-title">Ciclo de Melhoria Contínua</h3>
       <div className="objectives-grid">
         {cycleContinuo.map((item, index) => (
           <ObjectiveCard 

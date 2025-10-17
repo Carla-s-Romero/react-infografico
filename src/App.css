@@ -325,11 +325,15 @@
   font-size: 1.8em;
   color: #667eea;
   margin: 40px 0 20px 0;
-  text-align: center;
+  text-align: left;
 }
 
 .objectives-title {
-  margin-top: 40px;
+  margin-top: 50px;
+  margin-bottom: 35px;
+  text-align: left;
+  font-size: 2.5em;
+  font-weight: 700;
 }
 
 /* Definition Box - Cards Bonitos */
@@ -434,7 +438,7 @@
 
 .definition-main-image {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
@@ -445,7 +449,7 @@
 
 .definition-box:hover .definition-main-image {
   transform: scale(1.05);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 15px 40px #00000066;
 }
 
 /* Conteúdo lado direito */
@@ -618,13 +622,17 @@
 }
 
 .objective-card {
-  background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
-  padding: 25px;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  transition: all 0.6s ease;
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  border: 5px solid transparent;
+  border-image: linear-gradient(180deg, #7e88b8 0%, #b6a9c4 100%) 1;
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.08);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   opacity: 0;
   transform: translateY(20px);
+  position: relative;
+  overflow: hidden;
 }
 
 .objective-card.visible {
@@ -632,26 +640,62 @@
   transform: translateY(0);
 }
 
+.objective-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: linear-gradient(180deg, #7e88b8 0%, #b6a9c4 100%);
+  transition: width 0.3s ease;
+}
+
+.objective-card::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border-radius: 16px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
 .objective-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  transform: translateY(-8px);
+}
+
+.objective-card:hover::before {
+  width: 6px;
+}
+
+.objective-card:hover::after {
+  opacity: 1;
 }
 
 .objective-card h4 {
-  color: #333;
-  margin-bottom: 10px;
-  font-size: 1.2em;
+  color: #1e293b;
+  margin-bottom: 12px;
+  font-size: 1.25em;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .objective-card p {
-  color: #555;
+  color: #64748b;
+  line-height: 1.7;
+  font-size: 1.05em;
 }
 
 /* NPS Groups */
 .nps-groups {
   display: flex;
   justify-content: space-around;
-  gap: 20px;
+  gap: 25px;
   margin: 40px 0;
   flex-wrap: wrap;
 }
@@ -659,38 +703,121 @@
 .nps-group {
   flex: 1;
   min-width: 250px;
-  padding: 30px;
-  border-radius: 15px;
+  padding: 35px 30px;
+  border-radius: 20px;
   text-align: center;
-  color: white;
-  transition: transform 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  background: white;
+  border: 2px solid;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.nps-group::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.08;
+  transition: opacity 0.3s ease;
+  z-index: 0;
 }
 
 .nps-group:hover {
-  transform: scale(1.05);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+}
+
+.nps-group:hover::before {
+  opacity: 0.12;
 }
 
 .nps-group.promotores {
+  border-color: #7dd3c0;
+  background: linear-gradient(135deg, #f0fdf9 0%, #e8faf4 100%);
+}
+
+.nps-group.promotores::before {
   background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
 }
 
 .nps-group.neutros {
+  border-color: #f2c07f;
+  background: linear-gradient(135deg, #fffbf0 0%, #fff8e8 100%);
+}
+
+.nps-group.neutros::before {
   background: linear-gradient(135deg, #f2994a 0%, #f2c94c 100%);
 }
 
 .nps-group.detratores {
+  border-color: #f79191;
+  background: linear-gradient(135deg, #fff5f5 0%, #ffeded 100%);
+}
+
+.nps-group.detratores::before {
   background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%);
 }
 
 .nps-group h3 {
-  font-size: 2em;
+  font-size: 1.8em;
   margin-bottom: 10px;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+}
+
+.nps-group.promotores h3 {
+  color: #0d7768;
+}
+
+.nps-group.neutros h3 {
+  color: #c77a2d;
+}
+
+.nps-group.detratores h3 {
+  color: #c72839;
 }
 
 .nps-group .score {
   font-size: 2.5em;
   font-weight: bold;
   margin: 15px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.nps-group.promotores .score {
+  color: #11998e;
+}
+
+.nps-group.neutros .score {
+  color: #f2994a;
+}
+
+.nps-group.detratores .score {
+  color: #eb3349;
+}
+
+.nps-group p {
+  position: relative;
+  z-index: 1;
+  line-height: 1.6;
+}
+
+.nps-group.promotores p {
+  color: #2d5f56;
+}
+
+.nps-group.neutros p {
+  color: #7d5e2f;
+}
+
+.nps-group.detratores p {
+  color: #7d2e34;
 }
 
 /* Formula Box */
@@ -849,19 +976,41 @@
 
 /* Highlight */
 .highlight {
-  background: linear-gradient(120deg, #fdb44b 0%, #f8a847 100%);
-  padding: 4px 10px;
-  border-radius: 6px;
-  font-weight: 700;
-  color: #2d2d2d;
-  box-shadow: 0 2px 8px rgba(253, 180, 75, 0.3);
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  color: #2d44ac;
+  background: linear-gradient(135deg, #f0f4ff 0%, #e8edff 100%);
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.1);
   transition: all 0.3s ease;
+  display: inline-block;
+  position: relative;
+}
+
+.highlight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.05) 100%);
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .highlight:hover {
-  background: linear-gradient(120deg, #f8a847 0%, #f59d3d 100%);
-  box-shadow: 0 3px 12px rgba(253, 180, 75, 0.4);
+  color: #5568d3;
+  background: linear-gradient(135deg, #e8edff 0%, #dce5ff 100%);
+  border-color: rgba(102, 126, 234, 0.3);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
   transform: translateY(-1px);
+}
+
+.highlight:hover::before {
+  opacity: 1;
 }
 
 /* Responsive */

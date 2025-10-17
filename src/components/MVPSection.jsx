@@ -25,21 +25,30 @@ function MVPSection() {
 
   const objectives = [
     {
-      title: '✓ Validar Hipóteses',
-      description: 'Testar se a solução resolve um problema real do público'
+      title: 'Validar Hipóteses',
+      description: 'Testar, de forma rápida e objetiva, se a solução proposta realmente atende a uma necessidade do público-alvo, confirmando se o problema identificado é real e relevante.'
     },
     {
-      title: '✓ Economizar Recursos',
-      description: 'Reduzir tempo e dinheiro investidos antes da validação'
+      title: 'Evitar riscos',
+      description: 'Evitar o desperdício de tempo e dinheiro em funcionalidades que não são necessárias, lançando uma versão simplificada para testar a hipótese de valor e crescimento.'
     },
     {
-      title: '✓ Identificar Funcionalidades',
+      title: 'Identificar Funcionalidades',
       description: 'Descobrir quais recursos são essenciais e quais podem ser descartados'
     },
     {
-      title: '✓ Validar Público-Alvo',
-      description: 'Confirmar se o público foi bem definido'
-    }
+      title: 'Validar Público-Alvo',
+      description: 'Confirmar se o público-alvo está corretamente definido, verificando se o perfil escolhido corresponde às pessoas que realmente apresentam a necessidade ou o problema que a solução pretende resolver.'
+    },
+    {
+      title: 'Coletar feedback',
+      description: 'Obter informações valiosas dos usuários para entender seus comportamentos e identificar pontos de melhoria antes de investir recursos significativos em um desenvolvimento completo.'
+    },
+    {
+      title: 'Acelerar o aprendizado',
+      description: 'Acelerar o ciclo de desenvolvimento e aprendizado, permitindo que a empresa se adapte rapidamente com base nas reações do público.'
+      
+    } 
   ]
 
   return (
@@ -62,7 +71,7 @@ function MVPSection() {
         ]}
       />
 
-      <h3 className="subsection-title">🔄 Ciclo Build - Measure - Learn</h3>
+      <h3 className="subsection-title">Ciclo Build - Measure - Learn</h3>
       
       <div className="cycle-container">
         {cycleSteps.map((step) => (
@@ -75,7 +84,7 @@ function MVPSection() {
         ))}
       </div>
 
-      <h3 className="subsection-title objectives-title">🎯 Objetivos do MVP</h3>
+      <h3 className="subsection-title objectives-title">Objetivos do MVP</h3>
       
       <div className="objectives-grid">
         {objectives.map((obj, index) => (
